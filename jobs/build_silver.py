@@ -4,7 +4,7 @@ from transformations.silver import build_silver_online_retail
 
 
 def main() -> None:
-    spark = create_spark_session("build-silver-online-retail")
+    spark = create_spark_session("silver")
 
     df_raw = spark.read.parquet(RAW_ONLINE_RETAIL)
     df_silver = build_silver_online_retail(df_raw)

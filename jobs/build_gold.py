@@ -8,7 +8,7 @@ from transformations.gold import build_country_revenue, build_monthly_revenue
 
 
 def main() -> None:
-    spark = create_spark_session("build-gold-online-retail")
+    spark = create_spark_session("gold")
 
     df_silver = spark.read.parquet(SILVER_ONLINE_RETAIL)
 
