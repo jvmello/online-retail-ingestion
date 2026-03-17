@@ -8,3 +8,4 @@ dbt-spark
 openpyxl
 dbt-postgres
 python-dotenv
+psycopg2
