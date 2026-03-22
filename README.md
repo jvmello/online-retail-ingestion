@@ -5,6 +5,10 @@
 This project implements a local lakehouse architecture using PySpark, MinIO (S3-compatible storage), PostgreSQL, and dbt.  
 The pipeline processes a retail dataset and organizes data into Raw, Silver, and Gold layers following modern data engineering practices.
 
+## Objective
+
+This project was built as a learning and experimentation environment to practice modern data engineering concepts such as data lakehouse architecture, PySpark transformations, object storage (S3/MinIO), data quality checks, and analytical modeling with dbt.
+
 ## Architecture
 
 Data Flow:
