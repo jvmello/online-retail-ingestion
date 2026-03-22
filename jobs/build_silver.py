@@ -1,14 +1,13 @@
-from jobs.spark_session import create_spark_session
 from jobs.constants import RAW_ONLINE_RETAIL, SILVER_ONLINE_RETAIL
-from transformations.silver import build_silver_online_retail
+from jobs.spark_session import create_spark_session
 from jobs.validations import (
-    assert_not_empty,
     assert_columns_exist,
     assert_no_nulls,
     assert_non_negative,
+    assert_not_empty,
     assert_row_count_above,
 )
-
+from transformations.silver import build_silver_online_retail
 
 expected_silver_columns = [
     "InvoiceNo",
@@ -21,6 +20,7 @@ expected_silver_columns = [
     "Country",
     "Revenue",
 ]
+
 
 def main() -> None:
     spark = create_spark_session("silver")

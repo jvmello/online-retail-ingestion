@@ -1,7 +1,6 @@
-from jobs.spark_session import create_spark_session
 from jobs.constants import LOCAL_ONLINE_RETAIL_CSV, RAW_ONLINE_RETAIL
-
-from jobs.validations import assert_not_empty, assert_columns_exist
+from jobs.spark_session import create_spark_session
+from jobs.validations import assert_columns_exist, assert_not_empty
 
 expected_raw_columns = [
     "InvoiceNo",
