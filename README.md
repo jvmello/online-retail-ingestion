@@ -2,8 +2,7 @@
 
 ## Overview
 
-This project implements a local lakehouse architecture using PySpark, MinIO (S3-compatible storage), PostgreSQL, and dbt.  
-The pipeline processes a retail dataset and organizes data into Raw, Silver, and Gold layers following modern data engineering practices.
+This project implements a local lakehouse architecture using PySpark, MinIO (S3-compatible storage), PostgreSQL, and dbt. The pipeline ingests a retail dataset, processes it through Raw, Silver, and Gold layers, and prepares analytical datasets for downstream consumption.
 
 ## Objective
 
@@ -31,20 +30,41 @@ lakehouse-project/
 │ ├── ingest_raw.py
 │ ├── build_silver.py
 │ ├── build_gold.py
-│ └── validations.py
+│ ├── validations.py
+│ └── constants.py
 ├── transformations/
 │ ├── silver.py
 │ └── gold.py
 ├── notebooks/
+│ ├── 01_data_exploration.ipynb
+│ ├── 02_raw_ingestion.ipynb
+│ ├── 03_silver_transformation.ipynb
+│ └── 04_gold_aggregation.ipynb
 ├── data/
+│ └── online_retail.xlsx (not included in the repository)
+│ └── online_retail.csv (not included in the repository)
 ├── dbt/
 ├── docs/
 │ └── transformation_rules.md
+├── utils/
+│ └── xlsx_to_csv.py
 ├── docker-compose.yml
 └── README.md
 ```
 
 ## Data Layers
+
+### Concepts
+This project follows the Medallion Architecture pattern:
+
+- **Raw Layer**: Stores data as ingested from the source;
+- **Silver Layer**: Cleans and standardizes data;
+- **Gold Layer**: Aggregated and business-ready datasets.
+
+This approach improves data quality, reproducibility, and analytical performance.
+
+### Original Dataset
+The original dataset can be retrieved [here](https://archive.ics.uci.edu/dataset/352/online+retail). I've used a script to convert it from XLSX to CSV.
 
 ### Raw Layer
 Stores the dataset exactly as ingested from the source CSV file.
@@ -79,6 +99,11 @@ python3 jobs/ingest_raw.py
 python3 jobs/build_silver.py
 python3 jobs/build_gold.py
 ```
+
+These jobs will:
+1. Ingest the dataset into the Raw layer;
+2. Clean and standardize data into the Silver layer;
+3. Generate aggregated datasets in the Gold layer.
 
 
 ## Data Quality Checks (TODO)
