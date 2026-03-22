@@ -41,7 +41,7 @@ lakehouse-project/
 │ ├── 03_silver_transformation.ipynb
 │ └── 04_gold_aggregation.ipynb
 ├── data/
-│ └── online_retail.xlsx (not included in the repository)
+│ ├── online_retail.xlsx (not included in the repository)
 │ └── online_retail.csv (not included in the repository)
 ├── dbt/
 ├── docs/
@@ -51,7 +51,7 @@ lakehouse-project/
 ├── tests/
 │ ├── minio.py
 │ ├── postgres.py
-│ ├── spark.py
+│ └── spark.py
 ├── docker-compose.yml
 └── README.md
 ```
