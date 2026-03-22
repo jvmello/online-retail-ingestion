@@ -9,3 +9,5 @@ openpyxl
 dbt-postgres
 python-dotenv
 psycopg2
+black
+isort

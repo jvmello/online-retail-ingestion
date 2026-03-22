@@ -41,13 +41,17 @@ lakehouse-project/
 │ ├── 03_silver_transformation.ipynb
 │ └── 04_gold_aggregation.ipynb
 ├── data/
-│ └── online_retail.xlsx (not included in the repository)
+│ ├── online_retail.xlsx (not included in the repository)
 │ └── online_retail.csv (not included in the repository)
 ├── dbt/
 ├── docs/
 │ └── transformation_rules.md
 ├── utils/
 │ └── xlsx_to_csv.py
+├── tests/
+│ ├── minio.py
+│ ├── postgres.py
+│ └── spark.py
 ├── docker-compose.yml
 └── README.md
 ```
@@ -106,7 +110,7 @@ These jobs will:
 3. Generate aggregated datasets in the Gold layer.
 
 
-## Data Quality Checks (TODO)
+## Data Quality Checks
 
 Data quality validations are applied during Silver and Gold processing:
 - Required columns must exist;
