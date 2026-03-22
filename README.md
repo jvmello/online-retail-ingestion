@@ -106,7 +106,7 @@ These jobs will:
 3. Generate aggregated datasets in the Gold layer.
 
 
-## Data Quality Checks (TODO)
+## Data Quality Checks
 
 Data quality validations are applied during Silver and Gold processing:
 - Required columns must exist;
