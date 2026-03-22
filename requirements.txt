@@ -1,0 +1,11 @@
+pyspark
+delta-spark
+pandas
+numpy
+boto3
+dbt-core
+dbt-spark
+openpyxl
+dbt-postgres
+python-dotenv
+psycopg2
