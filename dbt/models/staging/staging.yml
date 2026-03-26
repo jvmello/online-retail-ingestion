@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: retail_gold
+    schema: public
+    tables:
+      - name: country_revenue
+      - name: monthly_revenue

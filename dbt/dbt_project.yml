@@ -1,0 +1,14 @@
+name: 'lakehouse_retail'
+version: '1.0.0'
+config-version: 2
+
+profile: 'lakehouse_retail'
+
+model-paths: ["models"]
+
+models:
+  lakehouse_retail:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

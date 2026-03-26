@@ -18,40 +18,52 @@ Main components:
 
 - PySpark for data ingestion and transformations;
 - MinIO as Data Lake (S3-compatible storage);
-- PostgreSQL as serving layer / data warehouse (TODO);
-- dbt for analytical modeling (TODO);
+- PostgreSQL as serving layer / data warehouse;
+- dbt for analytical modeling;
 - Docker Compose for local infrastructure.
 
 ## Project Structure
 ```
 lakehouse-project/
 ├── jobs/
-│ ├── spark_session.py
-│ ├── ingest_raw.py
-│ ├── build_silver.py
-│ ├── build_gold.py
-│ ├── validations.py
-│ └── constants.py
+│   ├── spark_session.py
+│   ├── ingest_raw.py
+│   ├── build_silver.py
+│   ├── build_gold.py
+│   ├── validations.py
+│   ├── load_gold_to_postgres.py
+│   └── constants.py
 ├── transformations/
-│ ├── silver.py
-│ └── gold.py
+│   ├── silver.py
+│   └── gold.py
 ├── notebooks/
-│ ├── 01_data_exploration.ipynb
-│ ├── 02_raw_ingestion.ipynb
-│ ├── 03_silver_transformation.ipynb
-│ └── 04_gold_aggregation.ipynb
+│   ├── 01_data_exploration.ipynb
+│   ├── 02_raw_ingestion.ipynb
+│   ├── 03_silver_transformation.ipynb
+│   └── 04_gold_aggregation.ipynb
 ├── data/
-│ ├── online_retail.xlsx (not included in the repository)
-│ └── online_retail.csv (not included in the repository)
+│   ├── online_retail.xlsx (not included in the repository)
+│   └── online_retail.csv (not included in the repository)
 ├── dbt/
+│   ├── dbt_project.yml
+│   ├── profiles.yml
+│   └── models/
+│       ├── staging/
+│       │   ├── stg_country_revenue.sql
+│       │   ├── stg_monthly_revenue.sql
+│       │   └── staging.yml
+│       └── marts/
+│           ├── fct_country_revenue.sql
+│           ├── fct_monthly_revenue.sql
+│           └── marts.yml
 ├── docs/
-│ └── transformation_rules.md
+│   └── transformation_rules.md
 ├── utils/
-│ └── xlsx_to_csv.py
+│   └── xlsx_to_csv.py
 ├── tests/
-│ ├── minio.py
-│ ├── postgres.py
-│ └── spark.py
+│   ├── minio.py
+│   ├── postgres.py
+│   └── spark.py
 ├── docker-compose.yml
 └── README.md
 ```
@@ -123,8 +135,8 @@ Data quality validations are applied during Silver and Gold processing:
 
 - PySpark;
 - MinIO (S3);
-- PostgreSQL (TODO);
-- dbt (TODO);
+- PostgreSQL;
+- dbt;
 - Docker;
 - Python;
 - Parquet.

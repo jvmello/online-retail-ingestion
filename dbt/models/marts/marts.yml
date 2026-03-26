@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: fct_country_revenue
+    columns:
+      - name: country
+        tests:
+          - not_null
+      - name: total_revenue
+        tests:
+          - not_null
+
+  - name: fct_monthly_revenue
+    columns:
+      - name: revenue_month
+        tests:
+          - not_null
+      - name: total_revenue
+        tests:
+          - not_null
