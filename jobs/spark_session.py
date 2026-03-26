@@ -8,7 +8,7 @@ def create_spark_session(app_name: str = "lakehouse"):
             "spark.jars.packages",
             "org.apache.hadoop:hadoop-aws:3.3.4,"
             "com.amazonaws:aws-java-sdk-bundle:1.12.262,"
-            "org.postgresql:postgresql:42.7.3"
+            "org.postgresql:postgresql:42.7.3",
         )
         .config("spark.hadoop.fs.s3a.endpoint", "http://lakehouse-minio:9000")
         .config("spark.hadoop.fs.s3a.access.key", "admin")
