@@ -111,25 +111,33 @@ Location: s3a://lakehouse/gold/
 
 Run jobs in order:
 ```shell
-python3 jobs/ingest_raw.py
-python3 jobs/build_silver.py
-python3 jobs/build_gold.py
+python jobs/ingest_raw.py
+python jobs/build_silver.py
+python jobs/build_gold.py
+python3 jobs/load_gold_to_postgres.py
+```
+
+Or run the full pipeline:
+```shell
+python jobs/run_pipeline.py
 ```
 
 These jobs will:
 1. Ingest the dataset into the Raw layer;
 2. Clean and standardize data into the Silver layer;
-3. Generate aggregated datasets in the Gold layer.
+3. Generate aggregated datasets in the Gold layer;
+4. Load the Gold layer into Postgres.
 
 
 ## Data Quality Checks
 
-Data quality validations are applied during Silver and Gold processing:
-- Required columns must exist;
-- Critical fields cannot be null;
-- Numeric values must be valid;
+Data quality validations are applied before promoting data across layers. Implemented checks include:
+
 - Dataset cannot be empty;
-- Basic business rules validation.
+- Expected columns must exist;
+- Critical fields cannot contain null values;
+- Numeric metrics must be valid;
+- Aggregated analytical models are validated through dbt tests.
 
 ## Technologies Used
 
@@ -143,9 +151,9 @@ Data quality validations are applied during Silver and Gold processing:
 
 ## Future Improvements
 
+- Incremental processing;
+- Partitioned datasets;
 - Airflow orchestration;
 - Delta Lake / Iceberg tables;
 - CI/CD pipeline;
-- Automated data quality framework;
-- Partitioned tables;
-- Incremental processing.
+- Automated documentation publishing.
