@@ -1,0 +1,149 @@
+{
+    "metadata": {
+        "dbt_schema_version": "https://schemas.getdbt.com/dbt/catalog/v1.json",
+        "dbt_version": "1.7.0",
+        "generated_at": "2026-03-27T00:29:35.508215Z",
+        "invocation_id": "77cb1825-5a93-49cc-b76f-bdf3df60d8e8",
+        "env": {}
+    },
+    "nodes": {
+        "model.lakehouse_retail.fct_country_revenue": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "public",
+                "name": "fct_country_revenue",
+                "database": "warehouse",
+                "comment": null,
+                "owner": "dbt"
+            },
+            "columns": {
+                "country": {
+                    "type": "text",
+                    "index": 1,
+                    "name": "country",
+                    "comment": null
+                },
+                "total_revenue": {
+                    "type": "double precision",
+                    "index": 2,
+                    "name": "total_revenue",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.lakehouse_retail.fct_country_revenue"
+        },
+        "model.lakehouse_retail.fct_monthly_revenue": {
+            "metadata": {
+                "type": "BASE TABLE",
+                "schema": "public",
+                "name": "fct_monthly_revenue",
+                "database": "warehouse",
+                "comment": null,
+                "owner": "dbt"
+            },
+            "columns": {
+                "revenue_month": {
+                    "type": "timestamp without time zone",
+                    "index": 1,
+                    "name": "revenue_month",
+                    "comment": null
+                },
+                "total_revenue": {
+                    "type": "double precision",
+                    "index": 2,
+                    "name": "total_revenue",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.lakehouse_retail.fct_monthly_revenue"
+        },
+        "model.lakehouse_retail.stg_country_revenue": {
+            "metadata": {
+                "type": "VIEW",
+                "schema": "public",
+                "name": "stg_country_revenue",
+                "database": "warehouse",
+                "comment": null,
+                "owner": "dbt"
+            },
+            "columns": {
+                "country": {
+                    "type": "text",
+                    "index": 1,
+                    "name": "country",
+                    "comment": null
+                },
+                "total_revenue": {
+                    "type": "double precision",
+                    "index": 2,
+                    "name": "total_revenue",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.lakehouse_retail.stg_country_revenue"
+        },
+        "model.lakehouse_retail.stg_monthly_revenue": {
+            "metadata": {
+                "type": "VIEW",
+                "schema": "public",
+                "name": "stg_monthly_revenue",
+                "database": "warehouse",
+                "comment": null,
+                "owner": "dbt"
+            },
+            "columns": {
+                "revenue_month": {
+                    "type": "timestamp without time zone",
+                    "index": 1,
+                    "name": "revenue_month",
+                    "comment": null
+                },
+                "total_revenue": {
+                    "type": "double precision",
+                    "index": 2,
+                    "name": "total_revenue",
+                    "comment": null
+                }
+            },
+            "stats": {
+                "has_stats": {
+                    "id": "has_stats",
+                    "label": "Has Stats?",
+                    "value": false,
+                    "include": false,
+                    "description": "Indicates whether there are statistics for this table"
+                }
+            },
+            "unique_id": "model.lakehouse_retail.stg_monthly_revenue"
+        }
+    },
+    "sources": {},
+    "errors": null
+}
