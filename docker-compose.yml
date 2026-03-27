@@ -62,3 +62,5 @@ services:
     volumes:
       - ./dbt:/usr/app
     working_dir: /usr/app
+    entrypoint: ["/bin/sh", "-c"]
+    command: ["while true; do sleep 1000; done"]
